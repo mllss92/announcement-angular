@@ -1,0 +1,36 @@
+mat-dialog-content {
+  width: calc(320px + 580 * ((100vw - 320px) / (1920 - 320)));
+}
+mat-dialog-content textarea::-webkit-scrollbar {
+  display: none !important;
+}
+
+::ng-deep.cdk-overlay-pane {
+  max-width: 900px !important;
+  max-height: 800px;
+}
+
+.form {
+  font-size: 18px;
+}
+
+textarea {
+  padding: 5px 10px !important;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.cancel-btn {
+  background-color: #ffab91;
+  color: #666;
+}
+
+.save-btn {
+  background-color: #a5d6a7;
+  color: #666;
+}

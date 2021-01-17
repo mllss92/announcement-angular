@@ -1,0 +1,23 @@
+.auth-box {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  top: 20%;
+}
+
+.auth-box::ng-deep.mat-ink-bar {
+  display: none;
+}
+
+.auth-box::ng-deep.mat-tab-label, .auth-box::ng-deep.mat-tab-label-active {
+  width: 50%;
+  background: #fff;
+  transition: all .4s;
+  color: #000;
+}
+.auth-box::ng-deep.mat-tab-label-active {
+  width: 80% !important;
+  opacity: 1 !important;
+  background: #3F51B4;
+  color: #fff;
+}

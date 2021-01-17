@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="feed-actions">
+    <mat-form-field class="w-50 search-input">
+      <mat-label>Search</mat-label>
+      <input class="search-input" type="search" matInput #searchInput>
+    </mat-form-field>
+
+    <button class="create-post-button mat-elevation-z2" mat-stroked-button color="primary" routerLink="/main/new-post"
+      *ngIf="isLoggedIn()">
+      <mat-icon>add</mat-icon>
+      Add New
+    </button>
+  </div>
+
+  <mat-list>
+    <app-post *ngFor="let post of postsList" [post]="post" (updatePost)="getPostsUsingPagination()"></app-post>
+  </mat-list>
+
+  <mat-paginator class="bg-light d-flex justify-content-center flex-wrap" [length]="55" [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 15]" (page)="onPageChange()" #paginator>
+  </mat-paginator>
+</div>

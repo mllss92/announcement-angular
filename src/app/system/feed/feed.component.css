@@ -1,0 +1,23 @@
+.create-post-button {
+ min-width: 150px;
+}
+
+.feed-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  padding-left: 10px;
+}
+
+@media(max-width: 502px) {
+  .search-input {
+    width: 100% !important;
+    margin-top: 15px;
+  }
+
+  .feed-actions{
+    justify-content: center;
+  }
+}
+

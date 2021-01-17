@@ -1,0 +1,30 @@
+<p>
+  <mat-toolbar class="nav-bar" color="primary">
+    <div class="navbar-title">
+      <span class="logo-example">
+        <img src="../../../assets/logo-example.png">
+      </span>
+      <a class="navbar-text" [routerLink]="['/main']">Announcement</a>
+    </div>
+
+    <div class="navbar-actions">
+
+      <button mat-stroked-button routerLink="/auth" *ngIf="!isLoggedIn()">
+        Sign In
+      </button>
+
+      <button mat-flat-button color="primary" [mat-menu-trigger-for]="menu" *ngIf="isLoggedIn()">
+        {{ getUserNickName() }}
+        <mat-icon matSuffix>expand_more</mat-icon>
+
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button class="mat-menu-item" mat-menu-item (click)="onLogout()">
+            Logout
+          </button>
+        </mat-menu>
+
+      </button>
+
+    </div>
+  </mat-toolbar>
+</p>

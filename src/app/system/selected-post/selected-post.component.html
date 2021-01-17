@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="post mat-elevation-z10" *ngIf="post">
+
+    <div class="title text-center p-3">
+      <span class="h3 d-block">{{post.title}}</span>
+      <mat-divider></mat-divider>
+      <div class="subtitle d-flex justify-content-end mt-3 flex-wrap text-secondary">
+        <span>Posted by: <strong class="text-dark mr-3">{{ post.userNickName }}</strong></span>
+        <span>{{post.dateAdded | date:'dd-MM-yyyy HH:mm'}}</span>
+      </div>
+    </div>
+
+    <p class="post-text">{{ post.text }}</p>
+  </div>
+
+
+  <mat-list class="similar-posts-box" *ngIf="post">
+    <div class="similar-post" *ngFor="let similarPost of similarsPost">
+      <app-post [post]="similarPost"></app-post>
+    </div>
+  </mat-list>
+
+</div>

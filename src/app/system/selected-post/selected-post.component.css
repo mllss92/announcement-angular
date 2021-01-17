@@ -1,0 +1,50 @@
+.post {
+  padding: 30px 15px 20px 30px;
+}
+
+.post-text {
+  white-space: pre-line;
+  font-size: 16px;
+}
+
+.similar-posts-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.similar-post {
+  width: 33%;
+}
+
+.similar-post::ng-deep.mat-list-item, .similar-post::ng-deep.post-content, .similar-post::ng-deep.post-text-content{
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.similar-post::ng-deep.post-content {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding: 10px 0 !important;
+}
+.similar-post::ng-deep.post-footer {
+  flex: none;
+  width: 100%;
+}
+
+.similar-post::ng-deep.post-icon-box {
+  display: none;
+}
+
+.similar-post::ng-deep.post-actions {
+  display: none;
+}
+
+@media(max-width: 992px) {
+  .similar-post {
+    width: 100%;
+  }
+}
+

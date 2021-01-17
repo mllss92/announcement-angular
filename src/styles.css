@@ -1,0 +1,31 @@
+@import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+  padding-bottom: 20px;
+}
+
+.form {
+  font-size: 18px;
+}
+
+button:active, button:focus {
+  outline: none;
+ }
+
+ .mat-simple-snackbar {
+   font-size: 16px;
+   display: flex !important;
+   justify-content: center !important;
+   font-weight: bold;
+   color: #666;
+ }
+ .toaster-success {
+  background-color: #a5d6a7;
+}
+
+.toaster-error {
+  background-color: #ffab91;
+}

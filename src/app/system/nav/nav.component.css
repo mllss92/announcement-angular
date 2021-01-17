@@ -1,0 +1,47 @@
+.nav-bar {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 64px;
+}
+
+.navbar-title, .navbar-actions {
+  display: flex;
+  align-items: flex-end;
+  padding: 5px 0;
+}
+
+.navbar-actions {
+  align-self: flex-end;
+}
+
+.logo-example img{
+  display: inline-block;
+  width: calc(35px + 40 * ((100vw - 320px) / (1920 - 320)));
+  margin-bottom: -5px;
+}
+
+.navbar-text {
+  font-size: calc(28px + 22 * ((100vw - 320px) / (1920 - 320)));
+  cursor: pointer;
+  text-decoration: none;
+  color: #f4f4f4;
+  padding: 0;
+}
+
+.mat-menu-item {
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  position: relative;
+  top: 7px;
+}
+
+@media(max-width: 768px) {
+  .logo-example img {
+    margin: 0;
+  }
+}

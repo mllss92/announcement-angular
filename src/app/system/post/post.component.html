@@ -1,0 +1,30 @@
+<mat-list-item class="post mat-elevation-z4" role="listitem">
+  <div class="post-content">
+
+    <div class="post-icon-box">
+      <mat-icon class="post-icon">announcement</mat-icon>
+    </div>
+
+    <div class="post-text-content">
+      <div class="post-title">
+        <a class="h3" [routerLink]='["/main/selected-post" , post._id]'>{{ post.title }}</a>
+        <div class="post-actions" *ngIf="post.userId === getUserId()">
+          <button class="bg-light mr-3 text-warning" mat-icon-button (click)="openEditPostDialog()">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button class="bg-light text-danger" mat-icon-button (click)="openDeletePostConfirmationDialog()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <hr>
+      <div class="post-body">{{ post.text }}</div>
+    </div>
+
+    <div class="post-footer">
+      <div class="post-author"><small>{{ post.userNickName }}</small></div>
+      <div class="post-date"><small>{{ post.dateAdded | date:'dd-MM-yyyy HH:mm' }}</small></div>
+    </div>
+
+  </div>
+</mat-list-item>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="content mat-elevation-z4">
+
+      <div class="form-title">
+        <span class="h4 d-block">Add new post</span>
+      </div>
+      <mat-divider></mat-divider>
+
+      <form class="form form-group mt-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="w-100">
+          <mat-label>Title</mat-label>
+          <textarea matInput cdkTextareaAutosize maxlength="100" #title formControlName="title"></textarea>
+          <mat-hint align="end">{{ title.value.length }}/100</mat-hint>
+          <mat-error *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched">
+            Title is required!
+          </mat-error>
+          <mat-error *ngIf="form.get('title')?.hasError('minlength') && !form.get('title')?.hasError('required')">
+            Minimum title length is <strong>{{form.get('title')?.errors?.minlength['requiredLength']}}</strong> symbols.
+            Current length is <strong>{{form.get('title')?.errors?.minlength['actualLength']}}</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mb-3">
+          <mat-label>Text</mat-label>
+          <textarea matInput cdkTextareaAutosize formControlName="text"></textarea>
+          <mat-error *ngIf="form.get('text')?.hasError('required') && form.get('text')?.touched">
+            Text is required!
+          </mat-error>
+          <mat-error *ngIf="form.get('text')?.hasError('minlength') && !form.get('text')?.hasError('required')">
+            Minimum text length is <strong>{{form.get('text')?.errors?.minlength['requiredLength']}}</strong> symbols.
+            Current length is <strong>{{form.get('text')?.errors?.minlength['actualLength']}}</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button class="create-btn" type="submit" mat-raised-button [disabled]="form.invalid">Create</button>
+          <button class="cancel-btn" type="button" mat-raised-button (click)="onCancel()">Cancel</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
