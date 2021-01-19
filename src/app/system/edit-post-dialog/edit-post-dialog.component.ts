@@ -1,3 +1,4 @@
+import { ValidatorsService } from './../../shared/validators/validators.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -17,12 +18,23 @@ export class EditPostDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Post,
     private dialogRef: MatDialogRef<EditPostDialogComponent>,
     private postsService: PostsService,
+    private validatorsService: ValidatorsService,
   ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl(this.data.title, [Validators.required, Validators.minLength(6)]),
-      text: new FormControl(this.data.text, [Validators.required, Validators.minLength(25)]),
+      title: new FormControl(this.data.title, [
+        Validators.required,
+        Validators.minLength(this.validatorsService.getMinLength().title),
+        this.validatorsService.trimValidator(this.validatorsService.getMinLength().title),
+        this.validatorsService.blanksReplacer(),
+      ]),
+      text: new FormControl(this.data.text, [
+        Validators.required,
+        Validators.minLength(this.validatorsService.getMinLength().text),
+        this.validatorsService.trimValidator(this.validatorsService.getMinLength().text),
+        this.validatorsService.blanksReplacer(),
+      ]),
     });
   }
 
@@ -39,7 +51,13 @@ export class EditPostDialogComponent implements OnInit {
   }
 
   private getEditedPostData(): Post {
-    return Object.assign({}, this.data, this.form.value);
+    return Object.assign(
+      {},
+      this.data,
+      {
+        title: this.form.value.title.trim(),
+        text: this.form.value.text.trim(),
+      });
   }
 
 }

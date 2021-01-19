@@ -19,6 +19,11 @@
             Minimum title length is <strong>{{form.get('title')?.errors?.minlength['requiredLength']}}</strong> symbols.
             Current length is <strong>{{form.get('title')?.errors?.minlength['actualLength']}}</strong>
           </mat-error>
+          <mat-error *ngIf="form.get('title')?.hasError('trim') && form.get('title')?.touched">
+            Blanks at the begining and at the are not counted. Current length:
+            {{ form.get('title')?.errors?.trim['actualLength'] }} / {{ form.get('title')?.errors?.trim['requiredLength']
+            }}
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="w-100 mb-3">
@@ -30,6 +35,11 @@
           <mat-error *ngIf="form.get('text')?.hasError('minlength') && !form.get('text')?.hasError('required')">
             Minimum text length is <strong>{{form.get('text')?.errors?.minlength['requiredLength']}}</strong> symbols.
             Current length is <strong>{{form.get('text')?.errors?.minlength['actualLength']}}</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('text')?.hasError('trim') && form.get('text')?.touched">
+            Blanks at the begining and at the are not counted. Current length:
+            {{ form.get('text')?.errors?.trim['actualLength'] }} / {{ form.get('text')?.errors?.trim['requiredLength']
+            }}
           </mat-error>
         </mat-form-field>
 

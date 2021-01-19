@@ -20,6 +20,12 @@
       Minimum password length is <strong>{{form.get('password')?.errors?.minlength['requiredLength']}}</strong> symbols.
       Current length is <strong>{{form.get('password')?.errors?.minlength['actualLength']}}</strong>
     </mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('passwordsMatch') && !form.get('password')?.hasError('required')">
+      Passwords do not match! Please check and correct.
+    </mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('space') && !form.get('password')?.hasError('required')">
+      Password is not correct!
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="w-100 mb-1">
@@ -39,6 +45,9 @@
     <input type="text" matInput formControlName="nickName">
     <mat-error *ngIf="form.get('nickName')?.hasError('required') && form.get('nickName')?.touched">
       Nickname is required!
+    </mat-error>
+    <mat-error *ngIf="form.get('nickName')?.hasError('space') && !form.get('nickName')?.hasError('required')">
+      Nickname cannot contain any blank spaces!
     </mat-error>
   </mat-form-field>
 
